@@ -1,0 +1,54 @@
+
+<header class="navbar">
+
+  <div class="navbar-container">
+
+    <!-- Logo -->
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <span class="logo-icon">DS</span>
+      <span class="logo-text">Devadharshini<span>.</span></span>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="nav-links" [class.active]="isMenuOpen">
+
+      <a
+        *ngFor="let item of navItems"
+        [routerLink]="item.path"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+        (click)="closeMenu()">
+
+        {{ item.name }}
+
+      </a>
+
+      <!-- Resume Button -->
+      <a
+        href="/assets/devadharshini-resume.pdf"
+        class="resume-btn"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        View Resume
+      </a>
+
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      class="menu-toggle"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-label="Toggle navigation menu">
+
+      <span [class.open]="isMenuOpen"></span>
+      <span [class.open]="isMenuOpen"></span>
+      <span [class.open]="isMenuOpen"></span>
+
+    </button>
+
+  </div>
+
+</header>
